@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>468552843-28u9qa7jrbrt0qrj8sd0ibdqei6j1gfr.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.468552843-28u9qa7jrbrt0qrj8sd0ibdqei6j1gfr</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>468552843-6v8bj6smvtp5loi4r8t5jp0sf9j4ltrp.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBQUMSa_Yce3e5vVkXZa9Qxo9UVjjalLxM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>468552843</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.apps.hapiverse</string>
+	<key>PROJECT_ID</key>
+	<string>hapiverse-525c7</string>
+	<key>STORAGE_BUCKET</key>
+	<string>hapiverse-525c7.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:468552843:ios:6169fe3b63b36cdbd3d88e</string>
+</dict>
+</plist>

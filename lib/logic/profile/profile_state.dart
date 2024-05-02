@@ -1,0 +1,624 @@
+part of 'profile_cubit.dart';
+
+class ProfileState {
+  List<IntrestCategory>? intrest;
+  List<IntrestCategory>? subIntrest;
+  String? profileName;
+  String? profileImage;
+  String? gender;
+  String? relationShip;
+  String? hobby;
+  bool isProfileComplete;
+  String? country;
+  String? city;
+  String? weight;
+  String? mystate;
+  String? totalPost;
+  String? followers;
+  String? following;
+  String? dateOfBirth;
+  String? phoneNo;
+  List<PlacesOur>? places;
+  List<String> genderList;
+  List<String> relationDropList;
+  Response? otherProfileInfoResponse;
+  List<GetMyAllPosts>? allOtherPosts;
+  List<GetMyAllPosts>? allOtherPhotos;
+  List<PaymentCard>? paymentCards;
+  List<GetMyAllPosts>? allMyPosts;
+  List<GetMyAllPosts>? allMyPhotos;
+  File? profileUpdatedImage;
+  File? profileUpdatedImageBusiness;
+  File? coverUpdatedImageBusiness;
+  bool isProfileUpdating;
+  String? isFriend;
+  List<FetchFriend>? myFriendsList;
+  List<FetchFriend>? otherFriendsList;
+  String? healthHospital;
+  DateTime? healthDate;
+  String? healthStatus;
+  List<CovidRecord>? covidRecordList;
+  BusinessProfile? businessProfile;
+  BusinessProfile? otherBusinessProfile;
+  double businessRatingValue;
+  String? businessRatingFeedBack;
+  List<Track>? musicTrack;
+  List<FavMusic>? favMusic;
+  AudioPlayer? audioPlayer;
+  Duration progress;
+  bool isPlaying = true;
+  String musicTitle;
+  String musicImage;
+  String musicUrl;
+  Duration musicLength;
+  List<ImageAlbum>? imageAlbum;
+  List<LocationShareToOther>? locationshareToOthers;
+  String musicArtist;
+  int? musicIndex;
+  BusinessRating? businessRating;
+  bool? stealthModeEnable;
+  String? stealthModeTimeLeft;
+  List<RequestLocation>? myLocationRequeststoOther;
+  List<RequestLocation>? otherLocationRequestToMe;
+  bool notNowClieked;
+  String? avatarType;
+  String? flatColor;
+  String? profileImageText;
+  String? gredientColor1;
+  String? gredientColor2;
+  String? firstGredientColor;
+  String? secondGredientColor;
+  String? orderStreet;
+  String? orderProvince;
+  String? orderCity;
+  String? orderAddress;
+  double? orderLat;
+  double? orderLong;
+  List<UserOrder>? userOrder;
+  bool isMapMoving;
+  bool? isStartTimeSelected = false;
+  bool? isEndTimeSelected = false;
+  TimeOfDay saturdayStartTime = TimeOfDay.now();
+  TimeOfDay saturdayEndTime = TimeOfDay.now();
+  TimeOfDay sundaryStartTime = TimeOfDay.now();
+  TimeOfDay sundayEndTime = TimeOfDay.now();
+  TimeOfDay mondayStartTime = TimeOfDay.now();
+  TimeOfDay mondayEndTime = TimeOfDay.now();
+  TimeOfDay tuesdayStartTime = TimeOfDay.now();
+  TimeOfDay tuesdayEndTime = TimeOfDay.now();
+  TimeOfDay wednesdayStartTime = TimeOfDay.now();
+  TimeOfDay wednesdayEndTime = TimeOfDay.now();
+  TimeOfDay thursdayStartTime = TimeOfDay.now();
+  TimeOfDay thursdayEndTime = TimeOfDay.now();
+  TimeOfDay fridayStartTime = TimeOfDay.now();
+  TimeOfDay firdayEndTime = TimeOfDay.now();
+  bool? saturday = true;
+  bool? sunday = false;
+  bool? monday = true;
+  bool? tuesday = false;
+  bool? wednesday = false;
+  bool? thursday = false;
+  bool? friday = false;
+  bool alwaysOpen;
+  bool isHoursSelected;
+  bool closedAllDayMonday;
+  bool closedAllDayTuesday;
+  bool closedAllDayWednesDay;
+  bool closedAllDayThursday;
+  bool closedAllDayFriday;
+  bool closedAllDaySaturday;
+  bool closedAllDaySunday;
+  List<Job>? jobs;
+  List<Widget>? addPlaceImagesWidget;
+  Set<Marker>? businessLocationMArker = {};
+  static late double currentLat = 24.401716;
+  static late double currentLng = 67.822508;
+  LatLng initPosition = const LatLng(24.401716, 67.822508);
+  Completer<GoogleMapController>? completer = Completer();
+  GoogleMapController? controller;
+  String? businessAddress;
+  bool isLoading;
+  String? error;
+  String? height;
+  String? heightInches;
+  String? religion;
+  String? workName;
+  String? workTitle;
+  String? workLocation;
+  String? workStartDate;
+  String? workDescription;
+  String? workEndDate;
+  String? currentlyWorking;
+  String? educationName;
+  String? educationId;
+  String? educationLevel;
+  String? educationStartYear;
+  String? educationEndYaer;
+  String? currentlyReading;
+  String? educationLocation;
+  String? hasVerified;
+  String? badge;
+  CardDataModel? card;
+  List<UserInterestProfile>? userInterest;
+  List<LocationShareToOther>? locationshareToMe;
+  List<PhotoAlbum>? photAlbum;
+  List<File>? addPlaceImages;
+  CoinsModel? usersCoins;
+  List<FollowFollowingList>? myFollowList;
+  List<FollowFollowingList>? myFollowingList;
+  List<FollowFollowingList>? myFriendList;
+  List<FollowFollowingList>? otherFollowList;
+  List<FollowFollowingList>? otherFollowingList;
+  List<FollowFollowingList>? otherFriendList;
+  List<TextCompletionData>? messages = [];
+  TextEditingController? searchTextController = TextEditingController();
+  ApiState statee = ApiState.loading;
+  DateTime? newWorkStartDate;
+  DateTime? newWorkEndDate;
+  OccupationDetailModel? occupationDetailModel;
+
+  ProfileState(
+      {
+        this.intrest,
+        this.subIntrest,
+        this.searchTextController,
+      required this.statee,
+      this.messages,
+      this.myFollowList,
+      this.myFriendList,
+      this.otherFollowingList,
+      this.otherFollowList,
+      this.otherFriendList,
+      this.myFollowingList,
+      this.imageAlbum,
+      this.usersCoins,
+      this.favMusic,
+      this.card,
+      this.photAlbum,
+      this.locationshareToMe,
+      this.profileImage,
+      this.profileName,
+      this.hobby,
+      required this.isProfileComplete,
+      this.relationShip,
+      this.gender,
+      this.country,
+      this.city,
+      this.weight,
+      this.mystate,
+      this.followers,
+      this.following,
+      this.totalPost,
+      this.dateOfBirth,
+      this.phoneNo,
+      this.jobs,
+      this.paymentCards,
+      required this.genderList,
+      required this.relationDropList,
+      this.otherProfileInfoResponse,
+      this.allOtherPosts,
+      this.profileUpdatedImage,
+      required this.isProfileUpdating,
+      this.allMyPosts,
+      this.isFriend,
+      this.myFriendsList,
+      this.otherFriendsList,
+      this.healthDate,
+      this.healthHospital,
+      this.healthStatus,
+      this.covidRecordList,
+      this.businessProfile,
+      this.otherBusinessProfile,
+      this.businessRatingFeedBack,
+      required this.businessRatingValue,
+      this.musicTrack,
+      required this.audioPlayer,
+      required this.progress,
+      required this.isPlaying,
+      required this.musicArtist,
+      required this.musicImage,
+      required this.musicLength,
+      required this.musicTitle,
+      required this.musicUrl,
+      this.musicIndex,
+      this.businessRating,
+      this.allOtherPhotos,
+      this.allMyPhotos,
+      this.stealthModeEnable,
+      this.stealthModeTimeLeft,
+      this.myLocationRequeststoOther,
+      this.otherLocationRequestToMe,
+      required this.notNowClieked,
+      this.avatarType,
+      this.flatColor,
+      this.gredientColor1,
+      this.gredientColor2,
+      this.profileImageText,
+      this.orderAddress,
+      this.orderLat,
+      this.orderLong,
+      this.userOrder,
+      this.error,
+      required this.isMapMoving,
+      this.orderCity,
+      this.orderProvince,
+      this.orderStreet,
+      this.firstGredientColor,
+      this.secondGredientColor,
+      this.profileUpdatedImageBusiness,
+      this.coverUpdatedImageBusiness,
+      this.isEndTimeSelected,
+      this.isStartTimeSelected,
+      this.friday,
+      this.monday,
+      this.saturday,
+      this.sunday,
+      this.thursday,
+      this.tuesday,
+      this.wednesday,
+      required this.alwaysOpen,
+      required this.firdayEndTime,
+      required this.fridayStartTime,
+      required this.mondayEndTime,
+      required this.mondayStartTime,
+      required this.saturdayEndTime,
+      required this.saturdayStartTime,
+      required this.sundaryStartTime,
+      required this.sundayEndTime,
+      required this.thursdayEndTime,
+      required this.thursdayStartTime,
+      required this.tuesdayEndTime,
+      required this.tuesdayStartTime,
+      required this.wednesdayEndTime,
+      required this.wednesdayStartTime,
+      required this.isHoursSelected,
+      required this.closedAllDayFriday,
+      required this.closedAllDayMonday,
+      required this.closedAllDaySaturday,
+      required this.closedAllDaySunday,
+      required this.closedAllDayThursday,
+      required this.closedAllDayTuesday,
+      required this.closedAllDayWednesDay,
+      this.businessLocationMArker,
+      this.controller,
+      this.completer,
+      this.businessAddress,
+      required this.isLoading,
+      this.religion,
+      this.height,
+      this.heightInches,
+      this.educationName,
+      this.educationId,
+      this.workName,
+      this.educationLevel,
+      this.workTitle,
+      this.currentlyWorking,
+      this.educationStartYear,
+      this.educationEndYaer,
+      this.currentlyReading,
+      this.workLocation,
+      this.educationLocation,
+      this.workStartDate,
+      this.workEndDate,
+      this.workDescription,
+      this.badge,
+      this.hasVerified,
+      this.locationshareToOthers,
+      this.userInterest,
+      this.addPlaceImagesWidget,
+      this.addPlaceImages,
+      this.places,
+      this.newWorkStartDate,
+      this.newWorkEndDate,
+      this.occupationDetailModel});
+
+  ProfileState copyWith(
+      {
+        List<IntrestCategory>? intrestt,
+        List<IntrestCategory>? subIntres,
+        List<Job>? jobss,
+      TextEditingController? searchTextControllerr,
+      List<PaymentCard>? paymentCardss,
+      String? profileNamee,
+      String? profileImagee,
+      String? genderr,
+      String? relationShipp,
+      String? hobbyy,
+      bool? isProfileCompletee,
+      String? countryy,
+      String? cityy,
+      String? weightt,
+      String? mystatee,
+      String? totalPostt,
+      String? followerss,
+      String? followingg,
+      String? dateOfBirt,
+      String? phoneNoo,
+      List<String>? genderListt,
+      List<String>? relationDropListt,
+      Response? otherProfileInfoResponsee,
+      List<GetMyAllPosts>? allOtherPostss,
+      File? profileUpdatedImagee,
+      bool? isProfileUpdatingg,
+      List<GetMyAllPosts>? allMyPostss,
+      String? isFriendd,
+      List<FetchFriend>? myFriendsListt,
+      List<FetchFriend>? otherFriendsListt,
+      String? healthHospitall = "null",
+      DateTime? healthDatee,
+      String? healthStatuss,
+      List<CovidRecord>? covidRecordListt,
+      BusinessProfile? businessProfilee,
+      BusinessProfile? otherBusinessProfilee,
+      double? businessRatingValuee,
+      String? businessRatingFeedBackk,
+      List<Track>? musicTrackk,
+      List<FavMusic>? favMusicc,
+      AudioPlayer? audioPlayerr,
+      Duration? progresss,
+      bool? isPlayingg,
+      String? musicTitlee,
+      String? musicImagee,
+      String? musicUrll,
+      Duration? musicLengthh,
+      String? musicArtistt,
+      int? musicIndexx,
+      BusinessRating? businessRatingg,
+      List<GetMyAllPosts>? allOtherPhotoss,
+      List<GetMyAllPosts>? allMyPhotoss,
+      bool? stealthModeEnablee,
+      String? stealthModeTimeLeftt,
+      List<RequestLocation>? myLocationRequeststoOtherr,
+      List<RequestLocation>? otherLocationRequestToMee,
+      bool? notNowClickedd = false,
+      String? avatarTypee,
+      String? flatColorr,
+      String? profileImageTextt,
+      String? gredientColor11,
+      String? gredientColor22,
+      String? orderAddresss,
+      double? orderLatt,
+      double? orderLongg,
+      List<UserOrder>? userOrderr,
+      bool? isMapMovingg,
+      String? orderStreett,
+      String? orderProvincee,
+      String? orderCityy,
+      String? firstGredientColorr,
+      String? secondGredientColorr,
+      File? profileUpdatedImageBusinesss,
+      File? coverUpdatedImageBusinesss,
+      bool? isStartTimeSelectedd,
+      bool? isEndTimeSelectedd,
+      bool? saturdayy,
+      bool? sundayy,
+      bool? mondayy,
+      bool? tuesdayy,
+      bool? wednesdayy,
+      bool? thursdayy,
+      bool? fridayy,
+      bool? alwaysOpenn,
+      TimeOfDay? saturdayStartTimee,
+      TimeOfDay? saturdayEndTimee,
+      TimeOfDay? sundaryStartTimee,
+      TimeOfDay? sundayEndTimee,
+      TimeOfDay? mondayStartTimee,
+      TimeOfDay? mondayEndTimee,
+      TimeOfDay? tuesdayStartTimee,
+      TimeOfDay? tuesdayEndTimee,
+      TimeOfDay? wednesdayStartTimee,
+      TimeOfDay? wednesdayEndTimee,
+      TimeOfDay? thursdayStartTimee,
+      TimeOfDay? thursdayEndTimee,
+      TimeOfDay? fridayStartTimee,
+      TimeOfDay? firdayEndTimee,
+      bool? isHoursSelectedd,
+      bool? closedAllDayMondayy,
+      bool? closedAllDayTuesdayy,
+      bool? closedAllDayWednesDayy,
+      bool? closedAllDayThursdayy,
+      bool? closedAllDayFridayy,
+      bool? closedAllDaySaturdayy,
+      bool? closedAllDaySundayy,
+      Set<Marker>? businessMarker,
+      Completer<GoogleMapController>? completerr,
+      GoogleMapController? controllerr,
+      String? businessAddresss,
+      bool? isLoadingg,
+      String? errorr,
+      String? heightt,
+      String? heightInchess,
+      String? religionn,
+      String? workNamee,
+      String? workTitlee,
+      String? workLocationn,
+      String? workStartDatee,
+      String? workEndDatee,
+      String? currentlyWorkingg,
+      String? educationNamee,
+      String? educationIdd,
+      String? educationLevell,
+      String? educationStartYearr,
+      String? educationEndYaerr,
+      String? currentlyReadingg,
+      String? educationLocationn,
+      String? workDescriptionn,
+      String? hasVerifiedd,
+      String? badgee,
+      List<LocationShareToOther>? locationshareToOtherss,
+      List<LocationShareToOther>? locationshareToMee,
+      List<UserInterestProfile>? userInterestt,
+      List<PhotoAlbum>? photAlbumm,
+      CardDataModel? cardd,
+      List<ImageAlbum>? imageAlbumm,
+      List<Widget>? addPlaceImagesWidgett,
+      List<File>? addPlaceImagess,
+      List<PlacesOur>? placess,
+      CoinsModel? usersCoinss,
+      List<FollowFollowingList>? otherFollowFollowingListt,
+      List<FollowFollowingList>? myFollowListt,
+      List<FollowFollowingList>? myFollowingListt,
+      List<FollowFollowingList>? myFriendListt,
+      List<FollowFollowingList>? otherFollowListt,
+      List<FollowFollowingList>? otherFollowingListt,
+      List<FollowFollowingList>? otherFriendListt,
+      List<TextCompletionData>? messagesss,
+      var stateee,
+      DateTime? newWorkStartDatee,
+      DateTime? newWorkEndDatee,
+      OccupationDetailModel? occupationDetailModell}) {
+    return ProfileState(
+        intrest: intrestt ?? intrest,
+        subIntrest: subIntres ?? subIntrest,
+        hobby: hobbyy ?? hobby,
+        isProfileComplete: isProfileCompletee ?? isProfileComplete,
+        city: cityy ?? city,
+        weight: weightt ?? weight,
+        mystate: mystatee ?? mystate,
+        country: countryy ?? country,
+        followers: followerss ?? followers,
+        following: followingg ?? following,
+        gender: genderr ?? gender,
+        profileImage: profileImagee ?? profileImage,
+        profileName: profileNamee ?? profileName,
+        relationShip: relationShipp ?? relationShip,
+        totalPost: totalPostt ?? totalPost,
+        dateOfBirth: dateOfBirt ?? dateOfBirth,
+        phoneNo: phoneNoo ?? phoneNo,
+        genderList: genderListt ?? genderList,
+        relationDropList: relationDropListt ?? relationDropList,
+        otherProfileInfoResponse: otherProfileInfoResponsee ?? otherProfileInfoResponse,
+        allOtherPosts: allOtherPostss ?? allOtherPosts,
+        profileUpdatedImage: profileUpdatedImagee ?? profileUpdatedImage,
+        isProfileUpdating: isProfileUpdatingg ?? isProfileUpdating,
+        allMyPosts: allMyPostss ?? allMyPosts,
+        isFriend: isFriendd ?? isFriend,
+        myFriendsList: myFriendsListt ?? myFriendsList,
+        otherFriendsList: otherFriendsListt ?? otherFriendsList,
+        healthDate: healthDatee ?? healthDate,
+        healthHospital: healthHospitall ?? healthHospital,
+        healthStatus: healthStatuss ?? healthStatus,
+        covidRecordList: covidRecordListt ?? covidRecordList,
+        businessProfile: businessProfilee ?? businessProfile,
+        otherBusinessProfile: otherBusinessProfilee ?? otherBusinessProfile,
+        businessRatingValue: businessRatingValuee ?? businessRatingValue,
+        businessRatingFeedBack: businessRatingFeedBackk ?? businessRatingFeedBack,
+        musicTrack: musicTrackk ?? musicTrack,
+        audioPlayer: audioPlayerr ?? audioPlayer,
+        isPlaying: isPlayingg ?? isPlaying,
+        progress: progresss ?? progress,
+        musicArtist: musicArtistt ?? musicArtist,
+        musicImage: musicImagee ?? musicImage,
+        musicLength: musicLengthh ?? musicLength,
+        musicTitle: musicTitlee ?? musicTitle,
+        musicUrl: musicUrll ?? musicUrl,
+        musicIndex: musicIndexx ?? musicIndex,
+        businessRating: businessRatingg ?? businessRating,
+        allOtherPhotos: allOtherPhotoss ?? allOtherPhotos,
+        allMyPhotos: allMyPhotoss ?? allMyPhotos,
+        stealthModeEnable: stealthModeEnablee ?? stealthModeEnable,
+        stealthModeTimeLeft: stealthModeTimeLeftt ?? stealthModeTimeLeft,
+        otherLocationRequestToMe: otherLocationRequestToMee ?? otherLocationRequestToMe,
+        myLocationRequeststoOther: myLocationRequeststoOtherr ?? myLocationRequeststoOther,
+        notNowClieked: notNowClickedd ?? notNowClieked,
+        avatarType: avatarTypee ?? avatarType,
+        flatColor: flatColorr ?? flatColor,
+        gredientColor1: gredientColor11 ?? gredientColor1,
+        gredientColor2: gredientColor22 ?? gredientColor2,
+        profileImageText: profileImageTextt ?? profileImageText,
+        orderAddress: orderAddresss ?? orderAddress,
+        orderLat: orderLatt ?? orderLat,
+        orderLong: orderLongg ?? orderLong,
+        userOrder: userOrderr ?? userOrder,
+        isMapMoving: isMapMovingg ?? isMapMoving,
+        orderCity: orderCityy ?? orderCity,
+        orderProvince: orderProvincee ?? orderProvince,
+        orderStreet: orderStreett ?? orderStreet,
+        firstGredientColor: firstGredientColorr ?? firstGredientColor,
+        secondGredientColor: secondGredientColorr ?? secondGredientColor,
+        coverUpdatedImageBusiness: coverUpdatedImageBusinesss ?? coverUpdatedImageBusiness,
+        profileUpdatedImageBusiness: profileUpdatedImageBusinesss ?? profileUpdatedImageBusiness,
+        isStartTimeSelected: isStartTimeSelectedd ?? isStartTimeSelected,
+        isEndTimeSelected: isEndTimeSelectedd ?? isEndTimeSelected,
+        friday: fridayy ?? friday,
+        monday: mondayy ?? monday,
+        saturday: saturdayy ?? saturday,
+        sunday: sundayy ?? sunday,
+        thursday: tuesdayy ?? thursday,
+        tuesday: tuesdayy ?? tuesday,
+        wednesday: wednesdayy ?? wednesday,
+        alwaysOpen: alwaysOpenn ?? alwaysOpen,
+        firdayEndTime: firdayEndTimee ?? firdayEndTime,
+        fridayStartTime: fridayStartTimee ?? fridayStartTime,
+        mondayEndTime: mondayEndTimee ?? mondayEndTime,
+        mondayStartTime: mondayStartTimee ?? mondayStartTime,
+        saturdayEndTime: saturdayEndTimee ?? saturdayEndTime,
+        saturdayStartTime: saturdayStartTimee ?? saturdayStartTime,
+        sundaryStartTime: sundaryStartTimee ?? sundaryStartTime,
+        sundayEndTime: sundayEndTimee ?? sundayEndTime,
+        thursdayEndTime: thursdayEndTimee ?? thursdayEndTime,
+        thursdayStartTime: thursdayStartTimee ?? thursdayStartTime,
+        tuesdayEndTime: tuesdayEndTimee ?? tuesdayEndTime,
+        tuesdayStartTime: tuesdayStartTimee ?? tuesdayStartTime,
+        wednesdayEndTime: wednesdayEndTimee ?? wednesdayEndTime,
+        wednesdayStartTime: wednesdayStartTimee ?? wednesdayEndTime,
+        isHoursSelected: isHoursSelectedd ?? isHoursSelected,
+        closedAllDayFriday: closedAllDayFridayy ?? closedAllDayFriday,
+        closedAllDayMonday: closedAllDayMondayy ?? closedAllDayMonday,
+        closedAllDaySaturday: closedAllDaySaturdayy ?? closedAllDaySaturday,
+        closedAllDaySunday: closedAllDaySundayy ?? closedAllDaySunday,
+        closedAllDayThursday: closedAllDayThursdayy ?? closedAllDayThursday,
+        closedAllDayTuesday: closedAllDayTuesdayy ?? closedAllDayTuesday,
+        closedAllDayWednesDay: closedAllDayWednesDayy ?? closedAllDayWednesDay,
+        businessLocationMArker: businessMarker ?? businessLocationMArker,
+        completer: completerr ?? completer,
+        controller: controllerr ?? controller,
+        businessAddress: businessAddresss ?? businessAddress,
+        isLoading: isLoadingg ?? isLoading,
+        error: errorr ?? error,
+        religion: religionn ?? religion,
+        height: heightt ?? height,
+        heightInches: heightInchess ?? heightInches,
+        currentlyWorking: currentlyWorkingg ?? currentlyWorking,
+        educationLevel: educationLevell ?? educationLevel,
+        educationName: educationNamee ?? educationName,
+        educationId: educationIdd ?? educationId,
+        educationLocation: educationLocationn ?? educationLocation,
+        workEndDate: workEndDatee ?? workEndDate,
+        workStartDate: workStartDatee ?? workStartDate,
+        workName: workNamee ?? workName,
+        workLocation: workLocationn ?? workLocation,
+        currentlyReading: currentlyReadingg ?? currentlyReading,
+        educationEndYaer: educationEndYaerr ?? educationEndYaer,
+        educationStartYear: educationStartYearr ?? educationStartYear,
+        workTitle: workTitlee ?? workTitle,
+        workDescription: workDescriptionn ?? workDescription,
+        badge: badgee ?? badge,
+        hasVerified: hasVerifiedd ?? hasVerified,
+        locationshareToOthers: locationshareToOtherss ?? locationshareToOthers,
+        locationshareToMe: locationshareToMee ?? locationshareToMe,
+        paymentCards: paymentCardss ?? paymentCards,
+        userInterest: userInterestt ?? userInterest,
+        jobs: jobss ?? jobs,
+        photAlbum: photAlbumm ?? photAlbum,
+        card: cardd ?? card,
+        imageAlbum: imageAlbumm ?? imageAlbum,
+        favMusic: favMusicc ?? favMusic,
+        addPlaceImagesWidget: addPlaceImagesWidgett ?? addPlaceImagesWidget,
+        addPlaceImages: addPlaceImagess ?? addPlaceImages,
+        places: placess ?? places,
+        usersCoins: usersCoinss ?? usersCoins,
+        myFollowingList: myFollowingListt ?? myFollowingList,
+        myFollowList: myFollowListt ?? myFollowList,
+        myFriendList: myFriendListt ?? myFriendList,
+        otherFollowingList: otherFollowingListt ?? otherFollowingList,
+        otherFollowList: otherFollowListt ?? otherFollowList,
+        otherFriendList: otherFriendListt ?? otherFriendList,
+        messages: messagesss ?? messages,
+        statee: stateee ?? statee,
+        searchTextController: searchTextControllerr ?? searchTextControllerr,
+        newWorkStartDate: newWorkStartDatee ?? newWorkStartDate,
+        newWorkEndDate: newWorkEndDatee ?? newWorkEndDate,
+        occupationDetailModel: occupationDetailModell ?? occupationDetailModel);
+  }
+}

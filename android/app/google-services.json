@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "468552843",
+    "project_id": "hapiverse-525c7",
+    "storage_bucket": "hapiverse-525c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:468552843:android:5b7e503f05c322abd3d88e",
+        "android_client_info": {
+          "package_name": "com.app.hapiverse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "468552843-6v8bj6smvtp5loi4r8t5jp0sf9j4ltrp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.hapiverse",
+            "certificate_hash": "17e834de28f45507551afb8f47cc22f7ac35a95b"
+          }
+        },
+        {
+          "client_id": "468552843-qr7nq9av6t1g4cufh2oponmnp590enp5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDO1zCfxIcFMaqv1hq0dyqXmmT4kOArzrY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "468552843-qr7nq9av6t1g4cufh2oponmnp590enp5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "468552843-28u9qa7jrbrt0qrj8sd0ibdqei6j1gfr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.apps.hapiverse"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
